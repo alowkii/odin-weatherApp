@@ -2,6 +2,8 @@ export { displayWeatherData, displayWeatherDataErr }
 
 function displayWeatherData(data) {
     const datetime = data.currentConditions.datetime;
+    const time = datetime[0] + datetime[1];
+    console.log(datetime);
 
     for(let i=0; i<data.days.length; i++) {
         const date = data.days[i].datetime;
@@ -13,11 +15,17 @@ function displayWeatherData(data) {
         const desc = data.days[i].conditions;
 
         const weatherData = document.createElement('div');
+        weatherData.className = 'weather-data';
+        weatherData.id = `weather-data-${i}`;
         weatherData.innerHTML = `
             <h3>${dayOfWeek}</h3>
             <p>Temperature: ${temp}°F</p>
             <p>Conditions: ${desc}</p>
         `;
+
+        if(i==0){
+            weatherData.innerHTML = `<h3>${time}</h3>` + weatherData.innerHTML;
+        }
 
         document.getElementById('weather-data').appendChild(weatherData);
     }
