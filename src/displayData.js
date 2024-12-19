@@ -3,7 +3,6 @@ export { displayWeatherData, displayWeatherDataErr }
 function displayWeatherData(data) {
     const datetime = data.currentConditions.datetime;
     const time = datetime[0] + datetime[1];
-    console.log(datetime);
 
     for(let i=0; i<data.days.length; i++) {
         const date = data.days[i].datetime;

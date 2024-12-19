@@ -10,7 +10,7 @@ function getLocationInfo(form) {
 function getDateRange() {
     const date = new Date();
     const startDate = date.toISOString().split('T')[0];
-    const endDate = new Date(date.setDate(date.getDate() + 7)).toISOString().split('T')[0];
+    const endDate = new Date(date.setDate(date.getDate() + 6)).toISOString().split('T')[0];
     return { startDate, endDate };
 }
 
