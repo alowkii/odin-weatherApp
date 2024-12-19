@@ -1,4 +1,5 @@
 export { getWeatherData }
+import { displayWeatherData, displayWeatherDataErr } from './displayData.js';
 
 function getLocationInfo(form) {
     const city = form.city.value;
@@ -24,8 +25,8 @@ async function getWeatherData(event) {
     const response = await fetch(url);
     try {
         const data = await response.json();
-        console.log(data);
+        displayWeatherData(data);
     } catch (error) {
-        console.log('Error: ', error);
+        displayWeatherDataErr(error);
     }
 }
