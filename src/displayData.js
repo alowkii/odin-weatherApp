@@ -1,5 +1,9 @@
 export { displayWeatherData, displayWeatherDataErr }
 
+function changeTemperatureFormat() {
+    
+}
+
 function displayWeatherData(data) {
     const datetime = data.currentConditions.datetime;
     const time = datetime[0] + datetime[1];
@@ -17,9 +21,9 @@ function displayWeatherData(data) {
         weatherData.className = 'weather-data';
         weatherData.id = `weather-data-${i}`;
         weatherData.innerHTML = `
-            <h3>${dayOfWeek}</h3>
-            <p>Temperature: ${temp}°F</p>
-            <p>Conditions: ${desc}</p>
+            <h3 id="day-of-week">${dayOfWeek}</h3>
+            <p id="temperature">${temp}°F</p>
+            <p id="conditions">${desc}</p>
         `;
 
         if(i==0){
